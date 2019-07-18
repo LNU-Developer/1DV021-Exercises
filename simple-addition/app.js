@@ -13,7 +13,8 @@ const calc = require('./src/calc')
 
 // Call the function "addNumbers" in the calc module without
 // any arguments and save the result in a new local variable.
-// TODO: Write your code here.
+let sum = calc.addNumbers()
 
 // Print the result to the terminal (console).
 // TODO: Write your code here.
+console.log(sum)
