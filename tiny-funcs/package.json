@@ -40,11 +40,12 @@
     "test": "test"
   },
   "scripts": {
-    "all":  "npm run lint && npm run test",
+    "all": "npm run lint && npm run test",
     "lint": "standard | snazzy",
     "lint:fix": "standard --fix",
     "start": "node app.js",
-    "test": "mocha --recursive ./test"  },
+    "test": "mocha --recursive ./test"
+  },
   "standard": {
     "globals": [
       "describe",
