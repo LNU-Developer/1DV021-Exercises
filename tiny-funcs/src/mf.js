@@ -15,7 +15,7 @@
  * @returns {number} The result of an arithmetic operation.
  */
 function add () {
-  const a = 21
+  let a = 21
   let b = '21'
 
   b = Number.parseInt(b)
@@ -29,9 +29,9 @@ function add () {
  * @returns {string} The string 'I'm going to learn how to program in 9 weeks.'.
  */
 function concat () {
-  const message = `I'm going to learn how to program in`
-  const time = 9
-  const weeks = 'weeks.'
+  let message = `I'm going to learn how to program in`
+  let time = 9
+  let weeks = 'weeks.'
   return message + ' ' + time + ' ' + weeks
 }
 
@@ -41,10 +41,10 @@ function concat () {
  * @returns {number} The sum of two variables rounded to the nearest integer.
  */
 function round () {
-  const firstNumber = 12.24
-  const secondNumber = 29.27
+  let firstNumber = 12.24
+  let secondNumber = 29.27
 
-  const sum = Math.round(firstNumber + secondNumber)
+  let sum = Math.round(firstNumber + secondNumber)
 
   return sum
 }
@@ -78,7 +78,7 @@ function getOddNumbers (max) {
  */
 function greetings () {
   let result
-  const hour = new Date().getHours()
+  let hour = new Date().getHours()
   if (hour >= 8 && hour <= 12) {
     result = 'Good morning!'
   } else if (hour >= 12 && hour < 18) {
@@ -100,7 +100,7 @@ function greetings () {
 function replaceHyphensFor (str) {
   let result = ''
   for (let i = 0; i < str.length; i++) {
-    const char = str.charAt(i)
+    let char = str.charAt(i)
     if (char === '-') {
       result += ' '
     } else {
@@ -118,9 +118,9 @@ function replaceHyphensFor (str) {
  */
 function replaceHyphensWhile (str) {
   let result = ''
-  const i = 0
+  let i = 0
   while (i < str.length) {
-    const char = str.charAt(i)
+    let char = str.charAt(i)
     if (char === '-') {
       result += ' '
     } else {
