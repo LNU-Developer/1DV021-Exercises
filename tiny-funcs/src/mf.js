@@ -15,10 +15,12 @@
  * @returns {number} The result of an arithmetic operation.
  */
 function add () {
-  let a = 21
+  const a = 21
   let b = '21'
 
-  return a + (+b)
+  b = Number.parseInt(b)
+
+  return a + b
 }
 
 /**
@@ -27,11 +29,10 @@ function add () {
  * @returns {string} The string 'I'm going to learn how to program in 9 weeks.'.
  */
 function concat () {
-  let message = `I'm going to learn how to program in`
-  let time = 9
-  let weeks = 'weeks.'
-
-  // TODO: Write your code here.
+  const message = `I'm going to learn how to program in`
+  const time = 9
+  const weeks = 'weeks.'
+  return message + ' ' + time + ' ' + weeks
 }
 
 /**
@@ -40,10 +41,12 @@ function concat () {
  * @returns {number} The sum of two variables rounded to the nearest integer.
  */
 function round () {
-  let firstNumber = 12.24
-  let secondNumber = 29.27
+  const firstNumber = 12.24
+  const secondNumber = 29.27
 
-  // TODO: Write your code here.
+  const sum = Math.round(firstNumber + secondNumber)
+
+  return sum
 }
 
 /**
@@ -53,7 +56,14 @@ function round () {
  * @returns {string} A string with comma separated odd values.
  */
 function getOddNumbers (max) {
-  // TODO: Write your code here.
+  let result = ''
+  for (let i = 1; i <= max; i += 2) {
+    if (max.lenght > 0) {
+      result += ', '
+    }
+    result += i
+  }
+  return result
 }
 
 /**
@@ -67,9 +77,18 @@ function getOddNumbers (max) {
  * @returns {string} A greeting according to the time of day.
  */
 function greetings () {
-  let hour = new Date().getHours()
-
-  // TODO: Write your code here.
+  let result
+  const hour = new Date().getHours()
+  if (hour >= 8 && hour <= 12) {
+    result = 'Good morning!'
+  } else if (hour >= 12 && hour < 18) {
+    result = 'Good afternoon!'
+  } else if (hour >= 18 && hour < 24) {
+    result = 'Good evening!'
+  } else if (hour >= 24 && hour < 8) {
+    result = 'Good night!'
+  }
+  return result
 }
 
 /**
@@ -79,7 +98,16 @@ function greetings () {
  * @returns {string} - A new string with all matches of a hyphen replaced by a space.
  */
 function replaceHyphensFor (str) {
-  // TODO: Write your code here.
+  let result = ''
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charAt(i)
+    if (char === '-') {
+      result += ' '
+    } else {
+      result += char
+    }
+  }
+  return result
 }
 
 /**
@@ -89,7 +117,17 @@ function replaceHyphensFor (str) {
  * @returns {string} - A new string with all matches of a hyphen replaced by a space.
  */
 function replaceHyphensWhile (str) {
-  // TODO: Write your code here.
+  let result = ''
+  const i = 0
+  while (i < str.length) {
+    const char = str.charAt(i)
+    if (char === '-') {
+      result += ' '
+    } else {
+      result += char
+    }
+  }
+  return result
 }
 
 /**
@@ -98,7 +136,23 @@ function replaceHyphensWhile (str) {
  * @returns {string} - A string '11-12-13, 21-22-23, 31-32-33, 41-42-43, 51-52-53'.
  */
 function getNumberSequence () {
-  // TODO: Write your code here.
+  const maxNumber = 3
+  const maxPair = 5
+
+  let result = ''
+
+  for (let pair = 1; pair < maxPair; pair++) {
+    for (let number = 1; number < maxNumber; number++) {
+      result += pair.toString() + number.toString
+      if (number !== maxNumber) {
+        result += '-'
+      }
+      if (pair !== maxPair) {
+        result += ', '
+      }
+    }
+  }
+  return result
 }
 
 exports.add = add

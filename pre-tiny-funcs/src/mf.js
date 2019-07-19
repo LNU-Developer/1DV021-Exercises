@@ -16,7 +16,7 @@
  * @returns {number} The smallest integer greater than or equal to the given number.
  */
 function roundUp (number) {
-  // TODO: Write your code here.
+  return Math.ceil(number)
 }
 
 /**
@@ -26,7 +26,7 @@ function roundUp (number) {
  * @returns {number} The smallest integer less than or equal to the given number.
  */
 function roundDown (number) {
-  // TODO: Write your code here.
+  return Math.floor(number)
 }
 
 /**
@@ -36,7 +36,7 @@ function roundDown (number) {
  * @returns {number} The value of the given number rounded to the nearest integer.
  */
 function round (number) {
-  // TODO: Write your code here.
+  return Math.round(number)
 }
 
 /**
@@ -46,7 +46,7 @@ function round (number) {
  * @returns {number} Returns the the length of the sequence of characters of the given string.
  */
 function getStringLength (str) {
-  // TODO: Write your code here.
+  return str.length
 }
 
 /**
@@ -56,7 +56,7 @@ function getStringLength (str) {
  * @returns {string} A string representing the first character.
  */
 function getFirstLetter (str) {
-  // TODO: Write your code here.
+  return str.charAt(0)
 }
 
 /**
@@ -66,7 +66,7 @@ function getFirstLetter (str) {
  * @returns {number} The index of the first occurrence of the question mark character; -1 if not found.
  */
 function getIndexOfQuestionMark (str) {
-  // TODO: Write your code here.
+  return str.indexOf('?')
 }
 
 /**
@@ -77,7 +77,7 @@ function getIndexOfQuestionMark (str) {
  * @returns {boolean} true if the value of the str1 parameter is the same as the value of the str2 parameter; otherwise, false.
  */
 function isEqual (str1, str2) {
-  // TODO: Write your code here.
+  return str1 === str2
 }
 
 /**
@@ -87,7 +87,7 @@ function isEqual (str1, str2) {
  * @returns {boolean} true if number is odd; otherwise, false.
  */
 function isOdd (number) {
-  // TODO: Write your code here.
+  return number % 2 === 1
 }
 
 /**
@@ -97,7 +97,7 @@ function isOdd (number) {
  * @returns {boolean} true if number is even; otherwise, false.
  */
 function isEven (number) {
-  // TODO: Write your code here.
+  return number % 2 === 0
 }
 
 // Exports
