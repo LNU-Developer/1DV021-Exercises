@@ -18,9 +18,7 @@ function add () {
   let a = 21
   let b = '21'
 
-  // TODO: Write your code here.
-
-  return a + b
+  return a + (+b)
 }
 
 /**
