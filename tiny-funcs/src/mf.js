@@ -58,7 +58,7 @@ function round () {
 function getOddNumbers (max) {
   let result = ''
   for (let i = 1; i <= max; i += 2) {
-    if (max.lenght > 0) {
+    if (result.length > 0) {
       result += ', '
     }
     result += i
@@ -126,6 +126,7 @@ function replaceHyphensWhile (str) {
     } else {
       result += char
     }
+    i++
   }
   return result
 }
@@ -141,20 +142,19 @@ function getNumberSequence () {
 
   let result = ''
 
-  for (let pair = 1; pair < maxPair; pair++) {
-    for (let number = 1; number < maxNumber; number++) {
-      result += pair.toString() + number.toString
+  for (let pair = 1; pair <= maxPair; pair++) {
+    for (let number = 1; number <= maxNumber; number++) {
+      result += pair.toString() + number.toString()
       if (number !== maxNumber) {
         result += '-'
       }
-      if (pair !== maxPair) {
-        result += ', '
-      }
+    }
+    if (pair !== maxPair) {
+      result += ', '
     }
   }
   return result
 }
-
 exports.add = add
 exports.concat = concat
 exports.round = round
