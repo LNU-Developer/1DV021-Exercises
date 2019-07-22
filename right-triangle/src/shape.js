@@ -15,7 +15,11 @@
  * @returns {string} A string of hash characters.
  */
 function createRightTriangle (base) {
-  // TODO: Write your code here.
+  let result = ''
+  for (let row = '#'; row.length <= base; row += '#') {
+    result = result + row + '\n'
+  }
+  return result
 }
 
 exports.createRightTriangle = createRightTriangle
