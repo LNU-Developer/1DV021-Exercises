@@ -20,19 +20,15 @@ const mostWanted = require('./mostWanted')
 function getGangster (initials) {
   // TODO: Fix the bug(s) in this function to get the tests to pass.
   let names = mostWanted.getNames()
-  let theSuspect
-  let name
-  let initialsOfTheName
+  let name = names.next().value
 
-  do {
-    name = names.next().value
-    initialsOfTheName = mostWanted.getInitials(name)
-    if (initials === initialsOfTheName) {
-      theSuspect = name
+  while (name) {
+    if (initials === mostWanted.getInitials(name)) {
+      return name
     }
-  } while (name)
-
-  return theSuspect
+    name = names.next().value
+  }
+  return 'No suspect found!'
 }
 
 exports.getGangster = getGangster
