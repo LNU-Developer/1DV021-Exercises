@@ -36,29 +36,35 @@ function checkInputs (numbers) {
 }
 
 function maximum (numbers) {
-  checkInputs(numbers)
+  checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
 }
 
 function mean (numbers) {
-  checkInputs(numbers)
+  checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
+  let total = 0
+  for (let i = 0; i < numbers.length; i++) { // Summerize the array to a variable
+    total += numbers[i]
+  }
+
+  return total / numbers.length // Returned the average value of the array based on total array items
 }
 
 function median (numbers) {
-  checkInputs(numbers)
+  checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
 }
 
 function minimum (numbers) {
-  checkInputs(numbers)
+  checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
 }
 
 function mode (numbers) {
-  checkInputs(numbers)
+  checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
 }
 function range (numbers) {
-  checkInputs(numbers)
+  checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
 }
 function standardDeviation (numbers) {
-  checkInputs(numbers)
+  checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
 }
 
 // Exports
