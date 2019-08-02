@@ -51,6 +51,13 @@ function mean (numbers) {
 
 function median (numbers) {
   checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
+
+  let newSource = numbers.slice(0, numbers.length) // Created a new array to not change the original
+  newSource.sort(function (a, b) { return a - b }) // Sorted the array so that the largest number could be found at the end
+
+  let lowMiddle = Math.floor((newSource.length - 1) / 2) // Searched for the lower middle index (if applicable)
+  let highMiddle = Math.ceil((newSource.length - 1) / 2) // Searched for the higher middle index (if applicable)
+  return (newSource[lowMiddle] + newSource[highMiddle]) / 2 // Return the average value of both
 }
 
 function minimum (numbers) {
