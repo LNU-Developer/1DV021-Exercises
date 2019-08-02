@@ -18,7 +18,9 @@
  * @returns {{maximum: number, mean: number, median: number, minimum: number, mode: number[], range: number, standardDeviation: number}}
  */
 function descriptiveStatistics (numbers) {
-  // TODO: Write your code here.
+  if (!Array.isArray(numbers)) {
+    throw new TypeError('The passed argument is not an array')
+  }
 }
 
 // TODO: Write your code here.
