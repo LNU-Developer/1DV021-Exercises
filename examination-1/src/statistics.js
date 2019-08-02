@@ -37,6 +37,11 @@ function checkInputs (numbers) {
 
 function maximum (numbers) {
   checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
+
+  let newSource = numbers.slice(0, numbers.length) // Created a new array to not change the original
+  newSource.sort(function (a, b) { return a - b }) // Sorted the array so that the largest number could be found at the end
+
+  return newSource[newSource.length - 1] // Returned the value at the end of the array containing the largest value
 }
 
 function mean (numbers) {
@@ -53,15 +58,20 @@ function median (numbers) {
   checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
 
   let newSource = numbers.slice(0, numbers.length) // Created a new array to not change the original
-  newSource.sort(function (a, b) { return a - b }) // Sorted the array so that the largest number could be found at the end
+  newSource.sort(function (a, b) { return a - b }) // Sorted the array so that middle values could be found
 
   let lowMiddle = Math.floor((newSource.length - 1) / 2) // Searched for the lower middle index (if applicable)
   let highMiddle = Math.ceil((newSource.length - 1) / 2) // Searched for the higher middle index (if applicable)
-  return (newSource[lowMiddle] + newSource[highMiddle]) / 2 // Return the average value of both
+  return (newSource[lowMiddle] + newSource[highMiddle]) / 2 // Return the average value of both to get the median
 }
 
 function minimum (numbers) {
   checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
+
+  let newSource = numbers.slice(0, numbers.length) // Created a new array to not change the original
+  newSource.sort(function (a, b) { return a - b }) // Sorted the array so that the smallest number could be found at the end
+
+  return newSource[0] // Returned the value at the beginning of the array containing the smallest  value
 }
 
 function mode (numbers) {
