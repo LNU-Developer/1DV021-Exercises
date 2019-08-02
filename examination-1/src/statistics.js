@@ -18,19 +18,55 @@
  * @returns {{maximum: number, mean: number, median: number, minimum: number, mode: number[], range: number, standardDeviation: number}}
  */
 function descriptiveStatistics (numbers) {
+  checkInputs(numbers)
+}
+
+function checkInputs (numbers) {
   if (!Array.isArray(numbers)) {
-    throw new TypeError('The passed argument is not an array')
+    throw new TypeError('The passed argument is not an array.')
+  }
+  if (numbers === undefined || numbers.length === 0) {
+    throw new Error('The passed array contains no elements.')
+  }
+  for (let i = 0; i < numbers.length; i++) {
+    if (typeof numbers[i] !== 'number') {
+      throw new TypeError('The passed array contains not just numbers.')
+    }
   }
 }
 
-// TODO: Write your code here.
+function maximum (numbers) {
+  checkInputs(numbers)
+}
+
+function mean (numbers) {
+  checkInputs(numbers)
+}
+
+function median (numbers) {
+  checkInputs(numbers)
+}
+
+function minimum (numbers) {
+  checkInputs(numbers)
+}
+
+function mode (numbers) {
+  checkInputs(numbers)
+}
+function range (numbers) {
+  checkInputs(numbers)
+}
+function standardDeviation (numbers) {
+  checkInputs(numbers)
+}
 
 // Exports
 exports.descriptiveStatistics = descriptiveStatistics
-exports.maximum = undefined
-exports.mean = undefined
-exports.median = undefined
-exports.minimum = undefined
-exports.mode = undefined
-exports.range = undefined
-exports.standardDeviation = undefined
+exports.maximum = maximum
+exports.mean = mean
+exports.median = median
+exports.minimum = minimum
+exports.mode = mode
+exports.range = range
+exports.standardDeviation = standardDeviation
