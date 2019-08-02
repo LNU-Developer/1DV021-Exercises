@@ -77,8 +77,14 @@ function minimum (numbers) {
 function mode (numbers) {
   checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
 }
+
 function range (numbers) {
   checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
+
+  let newSource = numbers.slice(0, numbers.length) // Created a new array to not change the original
+  newSource.sort(function (a, b) { return a - b }) // Sorted the array so that the largest is at the end and smallest at the beginning
+
+  return newSource[newSource.length - 1] - newSource[0] // Returned the difference between the highest and lowest value
 }
 function standardDeviation (numbers) {
   checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
