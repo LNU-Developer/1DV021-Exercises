@@ -19,6 +19,15 @@
  */
 function descriptiveStatistics (numbers) {
   checkInputs(numbers)
+
+  let maximumResult = maximum(numbers)
+  let meanResult = mean(numbers)
+  let medianResult = median(numbers)
+  let minimumResult = minimum(numbers)
+  let modeResult = mode(numbers)
+  let rangeResult = range(numbers)
+  let standardDeviationResult = standardDeviation(numbers)
+  return { maximum: maximumResult, mean: meanResult, median: medianResult, minimum: minimumResult, mode: modeResult, range: rangeResult, standardDeviation: standardDeviationResult }
 }
 
 function checkInputs (numbers) {
@@ -87,6 +96,7 @@ function mode (numbers) {
   let newSource = numbers.slice(0, numbers.length) // Created a new array to not change the original
   newSource.sort(function (a, b) { return a - b }) // Sorted the array
 
+  // Go through the array and checking how many times the most occuring value occures
   do {
     for (let u = 0; u < newSource.length; u++) {
       if (newSource[i] === newSource[u]) {
@@ -107,7 +117,8 @@ function mode (numbers) {
     }
   }
   result.sort(function (a, b) { return a - b }) // Sorted the array so that the largest is at the end and smallest at the beginning
-  let cleanResult = result.filter(function (x) { return x != null })
+
+  let cleanResult = result.filter(function (x) { return x != null }) // created a new array with clean values e.g. not empty
   return cleanResult
 }
 
