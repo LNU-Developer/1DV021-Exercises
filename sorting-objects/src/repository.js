@@ -11,11 +11,11 @@
 let path = require('path')
 let fs = require('fs')
 
-  /**
-   * Returns an array of team objects.
-   *
-   * @returns {Object[]} An array of team objects.
-   */
+/**
+ * Returns an array of team objects.
+ *
+ * @returns {Object[]} An array of team objects.
+ */
 function loadTeams () {
   return JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'teams.json')))
 }
