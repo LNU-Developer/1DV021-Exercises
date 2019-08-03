@@ -88,6 +88,18 @@ function range (numbers) {
 }
 function standardDeviation (numbers) {
   checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
+
+  let average = mean(numbers) // Used mean function to receive the average value of the array
+  let powerOfDeviations = [] // Created an array to hold the power of the deviations.
+  let total = 0 // Variable to hold the sum of the array
+
+  for (let i = 0; i < numbers.length; i++) {
+    powerOfDeviations[i] = Math.pow((numbers[i] - average), 2) // Add the power of the deviations in an array
+  }
+  for (let u = 0; u < powerOfDeviations.length; u++) { // Summerize the array to a variable
+    total += powerOfDeviations[u]
+  }
+  return Math.sqrt(total / powerOfDeviations.length) // Returns the standard deviation
 }
 
 // Exports
