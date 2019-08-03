@@ -60,9 +60,9 @@ function median (numbers) {
   let newSource = numbers.slice(0, numbers.length) // Created a new array to not change the original
   newSource.sort(function (a, b) { return a - b }) // Sorted the array so that middle values could be found
 
-  let lowMiddle = Math.floor((newSource.length - 1) / 2) // Searched for the lower middle index (if applicable)
-  let highMiddle = Math.ceil((newSource.length - 1) / 2) // Searched for the higher middle index (if applicable)
-  return (newSource[lowMiddle] + newSource[highMiddle]) / 2 // Return the average value of both to get the median
+  let lowMid = Math.floor((newSource.length - 1) / 2) // Searched for the lower middle index (if applicable)
+  let highMid = Math.ceil((newSource.length - 1) / 2) // Searched for the higher middle index (if applicable)
+  return (newSource[lowMid] + newSource[highMid]) / 2 // Return the average value of both to get the median
 }
 
 function minimum (numbers) {
@@ -76,6 +76,39 @@ function minimum (numbers) {
 
 function mode (numbers) {
   checkInputs(numbers) // Run check function to make sure that the array doesn't contain errors.
+  let count = []
+
+  for (let y = 0; y < numbers.length; y++) {
+    count[y] = 0 // Added values to the array for it to understand it is a number
+  }
+
+  let i = 0
+
+  let newSource = numbers.slice(0, numbers.length) // Created a new array to not change the original
+  newSource.sort(function (a, b) { return a - b }) // Sorted the array
+
+  do {
+    for (let u = 0; u < newSource.length; u++) {
+      if (newSource[i] === newSource[u]) {
+        count[i]++
+      }
+    }
+    i++
+  } while (i < newSource.length)
+
+  let result = []
+
+  let max = maximum(count) // Find out the maximum instances of a number
+
+  // Find the unique numbers that occure the most
+  for (let x = 0; x < newSource.length; x++) {
+    if (count[x] === max && newSource[x - 1] !== newSource[x]) {
+      result[x] = newSource[x]
+    }
+  }
+  result.sort(function (a, b) { return a - b }) // Sorted the array so that the largest is at the end and smallest at the beginning
+  let cleanResult = result.filter(function (x) { return x != null })
+  return cleanResult
 }
 
 function range (numbers) {
