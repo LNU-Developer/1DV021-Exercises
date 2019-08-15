@@ -12,7 +12,7 @@ Ellipse.prototype.getCircumference = function () {
   return Math.PI * Math.sqrt(2 * this.a * this.a + 2 * this.b * this.b)
 }
 
-Ellipse.prototype.getString = function () {
-  return console.log(`a: ${this.a}, b: ${this.b}, area: ${this.getArea().toFixed(1)}, circumference: ${this.getCircumference().toFixed(1)}`)
+Ellipse.prototype.toString = function () {
+  return `a: ${this.a}, b: ${this.b}, area: ${this.getArea().toFixed(1)}, circumference: ${this.getCircumference().toFixed(1)}`
 }
 module.exports = Ellipse
