@@ -6,4 +6,6 @@ const deck = new Deck()
 
 const deck2 = deck.createDeck()
 
-console.log(deck2)
+let deck3 = deck.shuffleDeck(deck2)
+
+console.log(deck3)
