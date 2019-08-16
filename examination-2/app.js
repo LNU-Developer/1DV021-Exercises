@@ -1,6 +1,7 @@
 'use strict'
 
 const Deck = require('./src/Deck')
+const Player = require('./src/Player.js')
 
 let deck = new Deck()
 
@@ -14,9 +15,6 @@ deck2 = deck.shuffleDeck()
 console.log(deck2)
 console.log(deck2.length)
 
-let card = deck.handCard()
+let player = new Player(deck2)
 
-console.log(card)
-
-console.log(deck2)
-console.log(deck2.length)
+console.log(player.giveHand())
