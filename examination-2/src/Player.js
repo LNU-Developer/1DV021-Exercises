@@ -11,8 +11,10 @@ Player.prototype.giveHand = function () {
   let card
   let message = ''
   let countA = 0
+  let pickedCards = 0
   do {
     card = this.deck.pop()
+    pickedCards++
     message += `${card.suit}${card.value}`
     if (card.value === 'A') {
       countA++
@@ -38,7 +40,7 @@ Player.prototype.giveHand = function () {
         countA--
       }
     }
-  } while (sum <= this.preference)
+  } while (sum <= this.preference && pickedCards < 5)
   return { message, sum }
 }
 
