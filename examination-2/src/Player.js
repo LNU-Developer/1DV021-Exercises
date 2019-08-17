@@ -1,7 +1,9 @@
 'use strict'
 
-function Player (deck) {
+function Player (deck, count, preference) {
   this.deck = deck
+  this.count = count
+  this.preference = preference
 }
 
 Player.prototype.giveHand = function () {
@@ -11,7 +13,7 @@ Player.prototype.giveHand = function () {
   let countA = 0
   do {
     card = this.deck.pop()
-    message += `${card.suit}${card.value} `
+    message += `${card.suit}${card.value}`
     if (card.value === 'A') {
       countA++
       if (sum > 7) {
@@ -36,8 +38,12 @@ Player.prototype.giveHand = function () {
         countA--
       }
     }
-  } while (sum <= 15)
+  } while (sum <= this.preference)
   return { message, sum }
+}
+
+Player.prototype.playerTurn = function () {
+  return `Player #${this.count}: `
 }
 
 module.exports = Player
