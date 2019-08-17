@@ -15,7 +15,7 @@ Player.prototype.giveHand = function () {
   do {
     card = this.deck.pop()
     pickedCards++
-    message += `${card.suit}${card.value}`
+    message += `${card.suit}${card.value} `
     if (card.value === 'A') {
       countA++
       if (sum > 7) {
