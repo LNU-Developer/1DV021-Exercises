@@ -9,8 +9,8 @@ function Dealer (deck, count, preference) {
 Dealer.prototype = Object.create(Player.prototype)
 Dealer.prototype.constructor = Dealer
 
-Dealer.prototype.playerTurn = function () {
-  return `Dealer: `
+Dealer.prototype.scoreMessage = function () {
+  return `Dealer: ${this.message}`
 }
 
 module.exports = Dealer

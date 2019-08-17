@@ -4,18 +4,20 @@ function Player (deck, count, preference) {
   this.deck = deck
   this.count = count
   this.preference = preference
+  this.message = ''
 }
 
 Player.prototype.giveHand = function () {
   let sum = 0
   let card
-  let message = ''
   let countA = 0
   let pickedCards = 0
+  this.message = ''
+
   do {
     card = this.deck.pop()
     pickedCards++
-    message += `${card.suit}${card.value}`
+    this.message += `${card.suit}${card.value}`
     if (card.value === 'A') {
       countA++
       if (sum > 7) {
@@ -40,12 +42,12 @@ Player.prototype.giveHand = function () {
         countA--
       }
     }
-  } while (sum <= this.preference && pickedCards < 5)
-  return { message, sum, pickedCards }
+  } while (sum < this.preference && pickedCards < 5)
+  return { sum, pickedCards }
 }
 
-Player.prototype.playerTurn = function () {
-  return `Player #${this.count}: `
+Player.prototype.scoreMessage = function () {
+  return `Player #${this.count}: ${this.message}`
 }
 
 module.exports = Player
