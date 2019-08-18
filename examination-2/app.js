@@ -16,32 +16,20 @@ for (let i = 0; i < playerCount; i++) {
   let playerScore = player.giveHand()
 
   if (playerScore.sum > 21) {
-    console.log(`${player.scoreMessage()}(${playerScore.sum}) BUSTED!`)
-    console.log('Dealer: -')
-    console.log('Dealer wins!' + '\n')
+    console.log(`${player.scoreMessage()}(${playerScore.sum}) BUSTED!\nDealer: -\nDealer wins!\n`)
   } else if (playerScore.pickedCards === 5) {
-    console.log(`${player.scoreMessage()}(${playerScore.sum})`)
-    console.log('Dealer: -')
-    console.log('Player wins!' + '\n')
+    console.log(`${player.scoreMessage()}(${playerScore.sum})\nDealer: -\nPlayer wins!\n`)
   } else if (playerScore.sum === 21) {
-    console.log(`${player.scoreMessage()}(${playerScore.sum})`)
-    console.log('Dealer: -')
-    console.log('Player wins!' + '\n')
+    console.log(`${player.scoreMessage()}(${playerScore.sum})\nDealer: -\nPlayer wins!\n`)
   } else {
     let dealer = new Dealer(newDeck, playerScore.sum)
     let dealerScore = dealer.giveHand()
     if (dealerScore.sum > 21) {
-      console.log(`${player.scoreMessage()}(${playerScore.sum})`)
-      console.log(`${dealer.scoreMessage()}(${dealerScore.sum}) BUSTED!`)
-      console.log('Player wins!' + '\n')
+      console.log(`${player.scoreMessage()}(${playerScore.sum})\n${dealer.scoreMessage()}(${dealerScore.sum}) BUSTED!\nPlayer wins!\n`)
     } else if (dealerScore.sum >= playerScore.sum) {
-      console.log(`${player.scoreMessage()}(${playerScore.sum})`)
-      console.log(`${dealer.scoreMessage()}(${dealerScore.sum})`)
-      console.log('Dealer wins!' + '\n')
+      console.log(`${player.scoreMessage()}(${playerScore.sum})\n${dealer.scoreMessage()}(${dealerScore.sum})\nDealer wins!\n`)
     } else if (dealerScore.sum < playerScore.sum) {
-      console.log(`${player.scoreMessage()}(${playerScore.sum})`)
-      console.log(`${dealer.scoreMessage()}(${dealerScore.sum})`)
-      console.log('Player wins!' + '\n')
+      console.log(`${player.scoreMessage()}(${playerScore.sum})\n${dealer.scoreMessage()}(${dealerScore.sum})\nPlayer wins!\n`)
     }
   }
 }

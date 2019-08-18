@@ -1,11 +1,9 @@
 'use strict'
 
-class Deck {
-  constructor () {
-    this.deck = [] // created an array to hold the deck
-  }
+function Deck () {
+  this.deck = [] // created an array to hold the deck
 
-  shuffleDeck () {
+  Deck.prototype.shuffleDeck = function () {
     let tempValue, randomNo
     let currentElement = this.deck.length
 
@@ -21,7 +19,7 @@ class Deck {
     return this.deck
   }
 
-  createDeck (currentHand) {
+  Deck.prototype.createDeck = function () {
     const suits = ['♥', '♠', '♣', '♦']
     const values = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
     for (let suit of suits) {
@@ -32,7 +30,7 @@ class Deck {
     return this.deck
   }
 
-  giveCard () {
+  Deck.prototype.giveCard = function () {
     return this.deck.pop()
   }
 }

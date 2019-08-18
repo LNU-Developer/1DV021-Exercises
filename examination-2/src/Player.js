@@ -23,7 +23,7 @@ class Player extends Deck { // Inheritance of deck to use Deck functions in this
         this.deck = this.createDeck() // Creates a new deck
         for (let i = 0; i < this.deck.length; i++) {
           for (let y = 0; y < currentHand.length; y++) {
-            if (currentHand[y].suit === this.deck[i].suit && currentHand[y].value === this.deck[i].value) { // Remove current hand from deck, these has already been dealt.
+            if (currentHand[y].suit === this.deck[i].suit && currentHand[y].value === this.deck[i].value) { // Remove current hand from deck, these have already been dealt.
               this.deck.splice(i, 1)
             }
           }
@@ -35,7 +35,7 @@ class Player extends Deck { // Inheritance of deck to use Deck functions in this
         currentHand[pickedCards] = card // Holds the current hand in cards (if the deck runs out of cards, the suit and value on hand needs to be kept in order to recreate the deck without them)
         pickedCards++
 
-        this.message += `${card.suit}${card.value}`
+        this.message += `${card.suit}${card.value} `
 
         if (card.value === 'A') {
           countA++
