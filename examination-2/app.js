@@ -1,14 +1,14 @@
 'use strict'
 
 const Deck = require('./src/Deck')
-const Player = require('./src/Player.js')
-const Dealer = require('./src/Dealer.js')
+const Player = require('./src/Player')
+const Dealer = require('./src/Dealer')
 
 let deck = new Deck()
 
 let newDeck = deck.createDeck()
 newDeck = deck.shuffleDeck()
-const playerCount = 5
+const playerCount = 13
 
 for (let i = 0; i < playerCount; i++) {
   let player = new Player(newDeck, i + 1, 15)
@@ -28,7 +28,7 @@ for (let i = 0; i < playerCount; i++) {
     console.log('Dealer: -')
     console.log('Player wins!' + '\n')
   } else {
-    let dealer = new Dealer(newDeck, 1, playerScore.sum)
+    let dealer = new Dealer(newDeck, playerScore.sum)
     let dealerScore = dealer.giveHand()
     if (dealerScore.sum > 21) {
       console.log(`${player.scoreMessage()}(${playerScore.sum})`)

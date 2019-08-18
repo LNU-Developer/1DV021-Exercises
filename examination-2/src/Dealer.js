@@ -1,16 +1,14 @@
 'use strict'
 
-const Player = require('./Player.js')
+const Player = require('./Player')
 
-function Dealer (deck, count, preference) {
-  Player.call(this, deck, count, preference)
+class Dealer extends Player { // Dealer is actually a player, and thus inherit players properties
+  constructor (deck, preference) {
+    super(deck, preference, preference) // Properties being inhertiet, all except count (there is only one Dealer)
+  }
+
+  scoreMessage () {
+    return `Dealer: ${this.message}` // scoreMessage overrides the method in the Player module.
+  }
 }
-
-Dealer.prototype = Object.create(Player.prototype)
-Dealer.prototype.constructor = Dealer
-
-Dealer.prototype.scoreMessage = function () {
-  return `Dealer: ${this.message}`
-}
-
 module.exports = Dealer

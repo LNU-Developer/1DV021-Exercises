@@ -21,16 +21,19 @@ class Deck {
     return this.deck
   }
 
-  createDeck () {
+  createDeck (currentHand) {
     const suits = ['♥', '♠', '♣', '♦']
     const values = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
-
     for (let suit of suits) {
       for (let value of values) {
         this.deck.push({ suit, value })
       }
     }
     return this.deck
+  }
+
+  giveCard () {
+    return this.deck.pop()
   }
 }
 
