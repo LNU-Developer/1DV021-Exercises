@@ -12,11 +12,11 @@ class Player extends Deck { // Inheritance of deck to use Deck functions in this
 
   giveHand () {
     let sum = 0
-    let card
-    let countA = 0
+    let newCard
     let pickedCards = 0
     this.message = ''
     let currentHand = []
+
     do {
       if (this.deck.length <= 1) {
         this.deck.splice(0, 1) // Remove the remaining card from the deck
@@ -30,36 +30,16 @@ class Player extends Deck { // Inheritance of deck to use Deck functions in this
         }
         this.deck = this.shuffleDeck() // Reshuffles the deck
       } else {
-        card = this.giveCard()
+        newCard = this.deckCard()
 
-        currentHand[pickedCards] = card // Holds the current hand in cards (if the deck runs out of cards, the suit and value on hand needs to be kept in order to recreate the deck without them)
+        currentHand[pickedCards] = newCard.card // Holds the current hand in cards (if the deck runs out of cards, the suit and value on hand needs to be kept in order to recreate the deck without them)
         pickedCards++
+        this.message += `${newCard.card.suit}${newCard.card.value} `
 
-        this.message += `${card.suit}${card.value} `
-
-        if (card.value === 'A') {
-          countA++
-          if (sum > 7) {
-            sum += 1
-            countA--
-          } else {
-            sum += 14
-          }
-        } else if (card.value === 'J') {
-          sum += 11
-        } else if (card.value === 'Q') {
-          sum += 12
-        } else if (card.value === 'K') {
-          sum += 13
-        } else {
-          sum += card.value
-        }
-
-        if (sum > 21 && countA > 0) { // If I have an ace on hand and get a sum larger than 21, the Ace gets converted to value 1.
-          while (countA > 0 && sum > 21) {
-            sum = sum - 13
-            countA--
-          }
+        sum += newCard.value
+        while (newCard.countA > 0 && sum > 21) { // If I have an ace on hand and get a sum larger than 21, the Ace gets converted to value 1.
+          sum = sum - 13
+          newCard.countA = newCard.countA - 1
         }
       }
     } while (sum < this.preference && pickedCards < 5) // Gives out cards according to value preferences or until I have 5 cards on hand

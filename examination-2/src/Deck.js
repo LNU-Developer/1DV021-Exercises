@@ -30,8 +30,23 @@ function Deck () {
     return this.deck
   }
 
-  Deck.prototype.giveCard = function () {
-    return this.deck.pop()
+  Deck.prototype.deckCard = function () {
+    let card = this.deck.pop()
+    let value = 0
+    let countA = 0
+    if (card.value === 'A') {
+      value = 14
+      countA++
+    } else if (card.value === 'J') {
+      value = 11
+    } else if (card.value === 'Q') {
+      value = 12
+    } else if (card.value === 'K') {
+      value = 13
+    } else {
+      value += card.value
+    }
+    return { card, value, countA }
   }
 }
 
