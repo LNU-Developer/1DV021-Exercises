@@ -30,7 +30,7 @@ function Deck () {
     return this.deck
   }
 
-  Deck.prototype.deckCard = function () {
+  Deck.prototype.giveCard = function () {
     let card = this.deck.pop()
     let value = 0
     let countA = 0
