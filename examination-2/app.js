@@ -17,8 +17,8 @@ let deck = new Deck() // Creating a deck of cards
 let newDeck = deck.createDeck() // Array to hold a deck of cards, used by each player and dealer
 newDeck = deck.shuffleDeck() // Shuffled deck according to Fisher-Yates Shuffle
 
-const playerCount = 43 // Total number of players playing
-const playerPreference = 21 // Player preferences (changing this number will result in stopping pulling cards earlier or later)
+const playerCount = 15 // Total number of players playing
+const playerPreference = 15 // Player preferences (changing this number will result in stopping pulling cards earlier or later)
 
 // A maximum of 43 players is set, since this is the maximum amount of cards that can be dealt. 43 initial cards, 4 more cards to player (one card alreadt dealt) and 5 cards to dealer (total 52)
 try {
