@@ -2,6 +2,7 @@
 
 function Deck () {
   this.deck = [] // created an array to hold the deck
+  this.usedCards = [] // Holds used cards in a deck
 
   Deck.prototype.shuffleDeck = function () {
     let tempValue, randomNo
@@ -47,6 +48,19 @@ function Deck () {
       value += card.value
     }
     return { card, value, countA }
+  }
+
+  Deck.prototype.checkRemainingDeck = function () {
+    if (this.deck.length <= 1) {
+      this.usedCards.push(this.deck.pop()) // Remove the remaining card from the deck and adds to used cards
+
+      for (let o = 0; o < this.usedCards.length; o++) {
+        this.deck.push(this.usedCards[o])
+      }
+      this.usedCards.length = 0
+      // this.deck = this.shuffleDeck() // Reshuffles the deck
+      console.log(this.deck.length)
+    }
   }
 }
 
