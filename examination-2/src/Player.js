@@ -12,8 +12,6 @@ class Player extends Deck { // Inheritance of deck to use Deck functions in this
   }
 
   giveHand (firstCard) {
-    console.log(this.constructor.name)
-    console.log(this.deck.length)
     let newCard
     let sum = 0
     let countOfA = 0
@@ -21,6 +19,7 @@ class Player extends Deck { // Inheritance of deck to use Deck functions in this
     this.message = ''
     let currentHand = []
 
+    // If it's a player a card will already be given, this card is added to hand.
     if (firstCard !== undefined) {
       sum = firstCard.value
       countOfA = firstCard.countA
@@ -31,25 +30,27 @@ class Player extends Deck { // Inheritance of deck to use Deck functions in this
     }
 
     do {
+      // Run check function
       this.checkRemainingDeck()
 
+      // Give a new card on hand
       newCard = this.giveCard()
 
+      // Give card to hand and count the aces, add sum to score
       currentHand[pickedCards] = newCard.card
-      console.log(currentHand[pickedCards])
       countOfA = countOfA + newCard.countA
       pickedCards++
       this.message += `${newCard.card.suit}${newCard.card.value} `
       sum += newCard.value
 
-      while (countOfA > 0 && sum > 21) { // If I have an ace on hand and get a sum larger than 21, the Ace gets converted to value 1.
+      // If I have an ace on hand and get a sum larger than 21, the Ace gets converted to value 1.
+      while (countOfA > 0 && sum > 21) {
         sum = sum - 13
         countOfA = countOfA - 1
       }
     } while (sum < this.preference && pickedCards < 5) // Gives out cards according to value preferences or until I have 5 cards on hand
-    console.log(this.deck)
-    console.log(this.usedCards)
 
+    // If the deck length is 1 and it's the players turn this would mean the hand cant be pushed to used cards, since the dealer needs to get cards first
     if (!(this.deck.length === 1 && this.constructor.name === 'Player')) {
       for (let y = 0; y < pickedCards; y++) {
         this.usedCards.push(currentHand[y])
