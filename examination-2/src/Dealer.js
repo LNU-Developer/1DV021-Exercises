@@ -1,3 +1,10 @@
+/**
+ * Module for creating dealers and dealing hands of cards
+ *
+ * @author Rickard Marjanovic
+ * @version 1.0.0
+ */
+
 'use strict'
 
 const Player = require('./Player')

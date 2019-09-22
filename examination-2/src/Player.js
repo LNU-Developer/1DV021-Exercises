@@ -1,3 +1,10 @@
+/**
+ * Module for creating players and dealing hands of cards
+ *
+ * @author Rickard Marjanovic
+ * @version 1.0.0
+ */
+
 'use strict'
 
 const Deck = require('./Deck')
@@ -24,7 +31,6 @@ class Player extends Deck { // Inheritance of deck to use Deck functions in this
       sum = firstCard.value
       countOfA = firstCard.countA
       currentHand[0] = firstCard.card
-      console.log(currentHand[0])
       pickedCards = 1 // One card has already been given, and thus we start with pickedCards = 1
       this.message = `${firstCard.card.suit}${firstCard.card.value} `
     }

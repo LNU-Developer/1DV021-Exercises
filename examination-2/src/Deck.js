@@ -1,3 +1,10 @@
+/**
+ * Module for creating a deck, shuffleing, dealing cards and controlling the deck
+ *
+ * @author Rickard Marjanovic
+ * @version 1.0.0
+ */
+
 'use strict'
 
 function Deck () {
@@ -58,8 +65,7 @@ function Deck () {
         this.deck.push(this.usedCards[o])
       }
       this.usedCards.length = 0
-      // this.deck = this.shuffleDeck() // Reshuffles the deck
-      console.log(this.deck.length)
+      this.deck = this.shuffleDeck() // Reshuffles the deck
     }
   }
 }
