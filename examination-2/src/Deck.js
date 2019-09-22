@@ -6,10 +6,21 @@
  */
 
 'use strict'
+/**
+ * Creates a JavaScript Deck instance that represents a deck of cards.
+ *
+ * @constructor
+ */
 
 function Deck () {
   this.deck = [] // created an array to hold the deck
   this.usedCards = [] // Holds used cards in a deck
+
+  /**
+ * Shuffles a deck and returns a deck of cards in an array
+ *
+ * @returns {deck[]} - Returns deck of card shuffled
+ */
 
   Deck.prototype.shuffleDeck = function () {
     let tempValue, randomNo
@@ -27,6 +38,12 @@ function Deck () {
     return this.deck
   }
 
+  /**
+ * Creates a deck of cards and returns the deck as an array containing objects
+ *
+ * @returns {deck[]} - Returns a deck of cards in an array
+ */
+
   Deck.prototype.createDeck = function () {
     const suits = ['♥', '♠', '♣', '♦']
     const values = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
@@ -37,6 +54,12 @@ function Deck () {
     }
     return this.deck
   }
+
+  /**
+ * Pulls a card from deck and returns the card as well as it's values
+ *
+ * @returns {card.<string, number>}} - Returns an object containing card, value and if it's an ace or not
+ */
 
   Deck.prototype.giveCard = function () {
     let card = this.deck.pop()
@@ -56,6 +79,11 @@ function Deck () {
     }
     return { card, value, countA }
   }
+
+  /**
+ * Function that checks if the current deck is almost empty, if so takes the remaining card puts in deck with already dealt cards and reshuffles
+ *
+ */
 
   Deck.prototype.checkRemainingDeck = function () {
     if (this.deck.length <= 1) {

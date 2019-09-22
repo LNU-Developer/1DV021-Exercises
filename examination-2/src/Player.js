@@ -9,6 +9,16 @@
 
 const Deck = require('./Deck')
 
+/**
+ * Creates a JavaScript player instance that represents a player.
+ *
+ * @param {deck[]} deck - The deck of cards used by players
+ * @param {number} count - The number of players that are going to play
+ * @param {number} preference - Players preferences of when to stop pulling cards
+ * @param {usedCards[]} usedCards - Deck of already dealt cards
+ * @constructor
+ */
+
 class Player extends Deck { // Inheritance of deck to use Deck functions in this module.
   constructor (deck, count, preference, usedCards) {
     super() // No properties to inherit
@@ -17,6 +27,13 @@ class Player extends Deck { // Inheritance of deck to use Deck functions in this
     this.preference = preference
     this.usedCards = usedCards
   }
+
+  /**
+ * Returns a hand of cards dealt to the player as well as calculates score and gives a message of scoring
+ *
+ * @param {firstCard.<string, number>} firstCard - The first card dealt to player.
+ * @returns {sum, pickedCards} - Returns the sum value of the score and the amount of picked cards for the player
+ */
 
   giveHand (firstCard) {
     let newCard
@@ -66,9 +83,16 @@ class Player extends Deck { // Inheritance of deck to use Deck functions in this
     return { sum, pickedCards }
   }
 
+  /**
+ * Returns the score message for the specific player
+ *
+ * @returns {string} - Returns the score message for the specific player
+ */
+
   scoreMessage () {
     return `Player #${this.count}: ${this.message}`
   }
 }
 
+// Exports
 module.exports = Player
